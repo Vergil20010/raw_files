@@ -4,7 +4,9 @@
 
 2. 
 ~~~
-Select * from superheroes
+select universe,sum(appearances),max(appearances),min(appearances),avg(appearances) from superheroes
+where universe in ('marvel', 'dc')
+group by universe
 ~~~
 
 
@@ -103,7 +105,7 @@ limit 20
 
 2.
 ```
-
+🤡🖕
 ```
 
 ### Кривицкий
@@ -163,7 +165,10 @@ limit 20
 
 2.
 ```
-
+select * from superheroes
+where gender like '%Female%' and hair like '%White%' and  align like '%Bad%' and year between 1950 and 2010
+order by appearances desc
+limit 7
 ```
 
 
@@ -172,7 +177,10 @@ limit 20
 
 2.
 ```
-
+select name, align, eye, hair, year, appearances from superheroes
+where eye like '%Brown%' and hair like '%Blond%' and appearances <= (select max(appearances) from superheroes) AND align not like '%Neutral%'
+order by year desc
+limit 10
 ```
 
 
