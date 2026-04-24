@@ -58,7 +58,9 @@ limit 20
 
 2.
 ```
-
+SELECT id, name, align, appearances, universe, 100.0 * appearances / (Select sum(appearances) from superheroes) as part_of_appear FROM superheroes
+Where appearances <= (Select Max(appearances) from superheroes)
+limit 13
 ```
 
 ### Цыбулин
@@ -78,7 +80,11 @@ limit 7
 
 2.
 ```
-
+select name,align,eye,gender,universe,min(appearances),max(appearances),avg(appearances) from superheroes
+Where universe = 'marvel' and eye like '%Blue%' and gender like '%Male%'
+group by name,id
+order by name
+limit 25
 ```
 
 ### Шнайдер
@@ -86,7 +92,10 @@ limit 7
 
 2.
 ```
-
+Select name,align,gender,eye,hair,appearances,year,universe from superheroes
+Where universe = 'marvel' and gender like '%Female%' and align like '%Neutral%' and hair like '%Blond%' and eye like '%Blue%' and year between 1990 and 2010
+order by appearances desc
+limit 20
 ```
 
 ### Сергеев
