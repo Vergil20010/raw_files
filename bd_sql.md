@@ -54,15 +54,15 @@ limit 15
 ### Яковлева
 #### 1. Найди первых 19 самых не популярных по появлению героинь в диапазоне от 454-1812,  без коричневого цвета волос и глаз. Из любой вселенной. Чтобы они были НЕ плохие и НЕ нейтральные.
 
-#### 2. Код:
-#### ```
+#### 2. Код: 
+```
 select * from superheroes
 where gender like '%Female%' and appearances between 454 and 1812 and align not in ('Bad Characters', 'Neutral Characters')
 group by id,hair,eye
 having eye not like '%Brown%' and hair not like '%Brown%'
 order by appearances
 limit 19
-#### ```
+```
 
  
 ### Персидский
