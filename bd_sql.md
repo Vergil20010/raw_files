@@ -123,7 +123,11 @@ limit 20
 
 #### 2. Код:
 ```
-
+select * from superheroes
+Where id between 200 and 300 and eye like '%Blue%' and universe like '%marvel%' and hair like '%Blond%'
+group by name,id
+order by hair
+limit 15
 ```
 
 ### Агарков
@@ -135,11 +139,16 @@ limit 20
 ```
 
 ### Исроилов
-1. Найди первых 15 злодеев из марвел, появившиеся между 1960 и 2000 годах и имеющие черные волосы. Отсортируй их появления по убыванию. Доп условие: показывать только тех, чье появление больше среднего по значению.
+#### 1. Найди первых 15 злодеев из марвел, появившиеся между 1960 и 2000 годах и имеющие черные волосы. Отсортируй их появления по убыванию. Доп условие: показывать только тех, чье появление больше среднего по значению.
 
-2. Код:
+#### 2. Код:
 ```
-
+select * from superheroes
+where align like '%Bad%' and universe = 'marvel' and year between 1960 and 2000
+group by id,hair
+having hair like '%Black%'
+order by appearances desc
+limit 15
 ```
 
 
@@ -148,7 +157,11 @@ limit 20
 
 #### 2. Код:
 ```
-
+select name,year,align,appearances,gender,eye,universe from superheroes
+where year between 1936 and 2004
+and universe = 'dc' or universe = 'marvel' and align = 'Good Characters' or align = 'Bad Characters' and gender like '%Male%'
+order by appearances asc
+limit 10
 ```
 
 
@@ -199,6 +212,11 @@ limit 10
 
 #### 2. Код:
 ```
-
+Select id, name, align, eye as eye_color, hair as hair_color, gender, appearances, year as year_of_creation, universe from superheroes
+where year >= 1960 and hair not like '%Black%' and appearances between 100 and 1000
+group by align, id
+having align not like '%Bad%' and universe = 'dc' and gender like '%Female%'
+order by year, align, hair 
+limit 25
 ```
 -->
