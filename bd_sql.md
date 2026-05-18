@@ -1,11 +1,10 @@
 ## Запросы:
 ### Сафаров
-#### 1. Сравнить две вселенные — Marvel и DC — по cредней частоте поялвений персонажей. Найти суммарное кол-во появлений в обеих вселенных и показать максимальные и минимальные кол-во появлений. 
+#### 1. Сравнить две вселенные — Marvel и DC — По средниму кол-ву поялвений персонажей. Общему кол-ву героев. Сумме появлений. Показать максимальные и минимальные кол-во появлений в этих вселенных по отдельности. 
 
 #### 2. Код:
 ~~~
-select universe,sum(appearances),max(appearances),min(appearances),avg(appearances) from superheroes
-where universe in ('marvel', 'dc')
+select universe,count(*) as heroes,avg(appearances),min(appearances),max(appearances),sum(appearances) from superheroes
 group by universe
 ~~~
 
@@ -85,14 +84,13 @@ limit 7
 ```
 
 ### Несмашный
-#### 1. Выбрать первых 25 супергероев из вселенной марвел с голубыми глазами. Для каждого вывести: минимальное, максимальное и среднее кол-во появлений, пол, цвет глаз и вселенную. Сгруппировать по имени и id.
+#### 1. Выбрать первых 25 супергероев из вселенной марвел с голубыми глазами. Для каждого мужского персонажа вывести: минимальное, максимальное и среднее кол-во появлений, пол, цвет глаз и вселенную. Сгруппировать по имени и id.
 
 #### 2. Код:
 ```
 select name,align,eye,gender,universe,min(appearances),max(appearances),avg(appearances) from superheroes
 Where universe = 'marvel' and eye like '%Blue%' and gender like '%Male%'
 group by name,id
-order by name
 limit 25
 ```
 
