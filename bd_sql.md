@@ -57,7 +57,7 @@ where gender like '%Female%' and appearances between 454 and 1812 and align not 
 group by id,hair,eye
 having eye not like '%Brown%' and hair not like '%Brown%'
 order by appearances
-limit 19
+limit 17
 ```
 
  
@@ -83,7 +83,7 @@ order by year asc
 limit 7
 ```
 
-### Несмашный
+/### Несмашный
 #### 1. Выбрать первых 25 супергероев из вселенной марвел с голубыми глазами. Для каждого мужского персонажа вывести: минимальное, максимальное и среднее кол-во появлений, пол, цвет глаз и вселенную. Сгруппировать по имени и id.
 
 #### 2. Код:
@@ -91,6 +91,7 @@ limit 7
 select name,align,eye,gender,universe,min(appearances),max(appearances),avg(appearances) from superheroes
 Where universe = 'marvel' and eye like '%Blue%' and gender like '%Male%'
 group by name,id
+order by name
 limit 25
 ```
 
@@ -209,7 +210,7 @@ limit 7
 #### 2. Код:
 ```
 select name, align, eye, hair, year, appearances from superheroes
-where eye like '%Brown%' and hair like '%Blond%' and appearances <= (select max(appearances) from superheroes) AND align not like '%Neutral%'
+where eye like '%Brown%' and hair like '%Blond%' and appearances <= (select max(appearances) from superheroes) AND align in ('Good Characters', 'Bad Characters')
 order by year desc
 limit 10
 ```
