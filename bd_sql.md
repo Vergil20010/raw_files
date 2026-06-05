@@ -215,19 +215,7 @@ order by year desc
 limit 10
 ```
 
-
-### Буйволенко Иван
-#### 1. Выведи первых 10 добрых героев появившихся между 1980 и 2000 годами из Marvel мужского пола, имеющих светлые волосы и голубые глаза, а также отсортируй их по количеству появлений от большего к меньшему.
-
-#### 2. Код:
-```
-select name, gender, hair, eye, align, universe, year, appearances from superheroes
-where year between 1980 and 2000 and gender like '%Male%' and universe like '%marvel%' and hair like '%Blond%' and eye like '%Blue%'
-order by appearances desc
-limit 10
-```
-
-<!--### Чесноков
+### Чесноков
 #### 1. Найди айди, имя, принадлежность к стороне, глаза (как цвет глаз),  волосы (как цвет волос), пол, появления, год (как год создания) и вселенную из супергероев начиная с 1960 года. Там не должно быть черноволосых, они должны иметь от 100 и более появлений, но не больше 1000 появлений, должны быть женщинами, из DC и не злодеями, отсортируй по году, принадлежности и волосам и ограничься только 25 первыми из них
 
 #### 2. Код:
@@ -239,4 +227,15 @@ having align not like '%Bad%' and universe = 'dc' and gender like '%Female%'
 order by year, align, hair 
 limit 25
 ```
--->
+
+
+### Буйволенко Иван
+#### 1. Выведи первых 10 добрых героев появившихся между 1980 и 2000 годами из Marvel мужского пола, имеющих светлые волосы и голубые глаза, а также отсортируй их по количеству появлений от большего к меньшему.
+
+#### 2. Код:
+```
+select name, gender, hair, eye, align, universe, year, appearances from superheroes
+where year between 1980 and 2000 and gender like '%Male%' and universe like '%marvel%' and hair like '%Blond%' and eye like '%Blue%'
+order by appearances desc
+limit 10
+```
