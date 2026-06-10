@@ -205,12 +205,12 @@ limit 7
 
 
 ### Гусейнов
-#### 1. Я хочу увидеть 10 супергероев которые чаще всего попадались в списке супергероев по году возрастанию, год появлений чтобы был самый поздний, у всех супергероев должны быть карий цвет глаз и цвет волос блонд, персонажи могут быть как хорошие так и плохие.
+#### 1. Я хочу увидеть 10 супергероев которые чаще всего попадались в списке супергероев по году возрастанию, год появлений супергероев начиная от 1990 и 2010 года, у всех супергероев должны быть карий цвет глаз и цвет волос блонд, персонажи могут быть как хорошие так и плохие.
 
 #### 2. Код:
 ```
 select name, align, eye, hair, year, appearances from superheroes
-where eye like '%Brown%' and hair like '%Blond%' and appearances <= (select max(appearances) from superheroes) AND align in ('Good Characters', 'Bad Characters')
+where eye like '%Brown%' and hair like '%Blond%' and appearances <= (select max(appearances) from superheroes) and align in ('Good Characters', 'Bad Characters') and year between 1990 and 2010
 order by year desc
 limit 10
 ```
