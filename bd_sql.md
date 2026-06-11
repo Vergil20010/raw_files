@@ -34,13 +34,13 @@ limit 20
 
 
 ### Куковский
-#### 1. Найди мне 15 злодеев мужского пола из вселенной ДС, которые появлялись чаще всего, но не менее 14 раз (14 включительно), созданные в период с 1965 по 2000 год, имеющие зеленый и синий цвет глаз и различные виды светлых волос.
+#### 1. Найди мне 15 злодеев мужского пола из вселенной ДС, которые появлялись чаще всего, но не менее 14 раз (14 включительно), созданные в период с 1965 по 2000 год, имеющие зеленый и синий цвет глаз и все они были блондинами.
 
 #### 2. Код:
 ```
 select * from superheroes
 where universe like '%dc%' and align like '%Bad%' and appearances >= 14 AND
-hair like '%Blond%' and eye in ('Green Eyes', 'Blue Eyes')
+hair = 'Blond Hair' and eye in ('Green Eyes', 'Blue Eyes')
 and year between 1965 and 2000 and gender like '%Male%'
 order by year, appearances desc
 limit 15
@@ -210,7 +210,7 @@ limit 7
 #### 2. Код:
 ```
 select name, align, eye, hair, year, appearances from superheroes
-where eye like '%Brown%' and hair like '%Blond%' and appearances <= (select max(appearances) from superheroes) and align in ('Good Characters', 'Bad Characters') and year between 1990 and 2010
+where eye like '%Brown%' and hair like '%Blond%' and  align in ('Good Characters', 'Bad Characters') and year between 1990 and 2010
 order by year desc
 limit 10
 ```
