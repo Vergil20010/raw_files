@@ -434,7 +434,7 @@ for x in range(2):
                 if (x or y) and not(y == z) and not w:
                     print(x, y, z, w)
 ```
-Ответ: 
+Ответ: z y x w
 
 
 ### Задание 13 (№ 17320) (Кривицкий) +
