@@ -400,7 +400,7 @@ for x in range(2):
                 if ((x and (not y) or (w <= z)) == (z == x)):
                     print(x, y, z, w)
 ```
-Ответ: 
+Ответ: z y w x
 
 
 
