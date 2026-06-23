@@ -40,7 +40,7 @@ limit 20
 ```
 select * from superheroes
 where universe like '%dc%' and align like '%Bad%' and appearances >= 14 AND
-hair = 'Blond Hair' and eye in ('Green Eyes', 'Blue Eyes')
+hair like %Blond% and eye in ('Green Eyes', 'Blue Eyes')
 and year between 1965 and 2000 and gender like '%Male%'
 order by year, appearances desc
 limit 15
